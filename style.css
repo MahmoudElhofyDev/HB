@@ -1,0 +1,572 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+
+  font-family: Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at 20% 20%, #ffe1ec, transparent 30%),
+    radial-gradient(circle at 80% 80%, #ffd7e5, transparent 30%),
+    linear-gradient(135deg, #ffffff, #fff0f6);
+
+  color: #4b303a;
+}
+
+
+/* الصفحات */
+
+.page {
+  position: absolute;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: scale(.95) translateY(25px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease,
+    visibility .7s;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+
+  transform: scale(1) translateY(0);
+}
+
+
+/* الكروت */
+
+.card {
+  position: relative;
+
+  width: 92%;
+  max-width: 700px;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  background: rgba(255,255,255,.9);
+
+  border: 2px solid #ffd1e1;
+
+  border-radius: 35px;
+
+  box-shadow:
+    0 25px 70px rgba(255,80,140,.18),
+    inset 0 0 30px rgba(255,160,190,.08);
+
+  animation: cardIn 1s ease;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: scale(.8) translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* القلوب */
+
+.big-heart,
+.heart-icon,
+.music-heart,
+.final-heart {
+  display: inline-block;
+
+  font-size: 65px;
+
+  margin-bottom: 15px;
+
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+}
+
+
+/* العناوين */
+
+h1 {
+  color: #ff5790;
+
+  font-size: clamp(28px, 6vw, 45px);
+
+  line-height: 1.5;
+
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: #ff5d94;
+
+  font-size: clamp(25px, 5vw, 36px);
+
+  margin-bottom: 20px;
+}
+
+.card > p {
+  font-size: 20px;
+
+  margin-bottom: 25px;
+}
+
+
+/* الأزرار */
+
+button {
+  border: none;
+
+  padding: 14px 30px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #ff6b9d,
+    #ff477f
+  );
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(255,70,125,.25);
+
+  transition: .3s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.04);
+
+  box-shadow:
+    0 15px 30px rgba(255,70,125,.35);
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+
+/* الرسالة الأولى */
+
+.message-lines {
+  margin: 25px 0 30px;
+}
+
+.message-lines p {
+  font-size: clamp(19px, 4vw, 27px);
+
+  font-weight: bold;
+
+  line-height: 2;
+
+  margin: 8px 0;
+
+  opacity: 0;
+
+  animation: lineAppear .8s ease forwards;
+}
+
+.message-lines p:nth-child(1) {
+  animation-delay: .2s;
+}
+
+.message-lines p:nth-child(2) {
+  animation-delay: .6s;
+}
+
+.message-lines p:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.message-lines p:nth-child(4) {
+  animation-delay: 1.4s;
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* مشغل الأغنية */
+
+.player {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  max-width: 500px;
+
+  margin: 30px auto;
+
+  padding: 15px;
+
+  border-radius: 22px;
+
+  background: #fff5f8;
+
+  border: 1px solid #ffd5e2;
+}
+
+.song-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  text-align: right;
+}
+
+.song-cover {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #ff7da8,
+    #ff4c83
+  );
+
+  font-size: 30px;
+}
+
+.song-info strong {
+  display: block;
+
+  font-size: 18px;
+
+  margin-bottom: 5px;
+}
+
+.song-info span {
+  color: #a66a7e;
+
+  font-size: 14px;
+}
+
+.play-button {
+  width: 52px;
+  height: 52px;
+
+  padding: 0;
+
+  border-radius: 50%;
+}
+
+
+/* العد التنازلي */
+
+.countdown {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin: 30px 0;
+}
+
+.time-box {
+  padding: 18px 8px;
+
+  border-radius: 20px;
+
+  background: #fff3f7;
+
+  border: 1px solid #ffd3e2;
+}
+
+.time-box span {
+  display: block;
+
+  color: #ff5b91;
+
+  font-size: 32px;
+
+  font-weight: bold;
+}
+
+.time-box small {
+  color: #8e6371;
+
+  font-size: 14px;
+}
+
+
+/* الرسالة الأخيرة */
+
+.final-message {
+  margin: 25px auto;
+
+  max-width: 600px;
+}
+
+.final-message p {
+  font-size: clamp(19px, 4vw, 26px);
+
+  line-height: 2;
+
+  font-weight: bold;
+
+  margin-bottom: 18px;
+
+  animation: finalText 1s ease both;
+}
+
+.final-message p:nth-child(1) {
+  animation-delay: .3s;
+}
+
+.final-message p:nth-child(2) {
+  animation-delay: .9s;
+}
+
+@keyframes finalText {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ending {
+  color: #ff578f;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  margin-top: 25px;
+
+  animation: endingPulse 2s infinite;
+}
+
+@keyframes endingPulse {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+
+/* المشغل السفلي */
+
+.mini-player {
+  position: fixed;
+
+  z-index: 100;
+
+  bottom: 18px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(92%, 500px);
+
+  padding: 10px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: rgba(255,255,255,.95);
+
+  border: 1px solid #ffd1e0;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 35px rgba(255,80,140,.18);
+
+  backdrop-filter: blur(10px);
+}
+
+.mini-song {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.mini-song > span {
+  font-size: 28px;
+}
+
+.mini-song b {
+  display: block;
+
+  font-size: 14px;
+}
+
+.mini-song small {
+  color: #9a6b7b;
+
+  font-size: 11px;
+}
+
+.mini-player button {
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  font-size: 15px;
+}
+
+
+/* القلوب الطائرة */
+
+.floating-heart {
+  position: fixed;
+
+  bottom: -40px;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  animation: flyHeart linear forwards;
+}
+
+@keyframes flyHeart {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(.5)
+      rotate(0);
+  }
+
+  15% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-110vh)
+      translateX(var(--move))
+      scale(1.4)
+      rotate(30deg);
+  }
+}
+
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+  .card {
+    padding: 35px 18px;
+
+    border-radius: 28px;
+  }
+
+  .big-heart,
+  .heart-icon,
+  .music-heart,
+  .final-heart {
+    font-size: 52px;
+  }
+
+  .countdown {
+    gap: 7px;
+  }
+
+  .time-box {
+    padding: 14px 4px;
+  }
+
+  .time-box span {
+    font-size: 25px;
+  }
+
+  .time-box small {
+    font-size: 11px;
+  }
+
+  .message-lines p {
+    line-height: 2.1;
+  }
+}

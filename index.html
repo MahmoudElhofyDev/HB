@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لفروحتي ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- القلوب -->
+  <div class="hearts"></div>
+
+ <!-- الموسيقى -->
+<audio id="song" loop preload="auto">
+  <source src="Z3JOwuG2Lac.mp3" type="audio/mpeg">
+  المتصفح لا يدعم تشغيل الصوت.
+</audio>
+
+  <!-- الصفحة 1 -->
+  <section class="page active" id="page1">
+    <div class="card intro-card">
+      <div class="big-heart">❤️</div>
+
+      <h1>كل سنه وانت طيبه يا فروحة قلبي</h1>
+
+      <p>عندي ليكي حكاية صغيرة 💗</p>
+
+      <button onclick="nextPage(); startMusic();">
+        ابدئي حكاية 💕
+      </button>
+    </div>
+  </section>
+
+
+  <!-- الصفحة 2 -->
+  <section class="page" id="page2">
+    <div class="card message-card">
+
+      <div class="heart-icon">💗</div>
+
+      <h2>رسالة ليكي</h2>
+
+      <div class="message-lines">
+        <p>كل سنة وانت طيبه يا روح قلبي</p>
+        <p>وعقبال ما أحتفل معاكي كل سنة</p>
+        <p>وتفضلي ليا انا بس وفقلبي يا روحي</p>
+        <p>بحبك اوييييي ❤️</p>
+      </div>
+
+      <button onclick="nextPage()">
+        كملي الحكاية 💕
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- الصفحة 3 -->
+  <section class="page" id="page3">
+    <div class="card music-card">
+
+      <div class="music-heart">🎵❤️</div>
+
+      <h2>الأغنية بتاعتنا</h2>
+
+      <p>بنت بلد يما 🎶</p>
+
+      <div class="player">
+
+        <div class="song-info">
+          <div class="song-cover">❤️</div>
+
+          <div>
+            <strong>بنت بلد يما</strong>
+            <span>لفروحتي 💗</span>
+          </div>
+        </div>
+
+        <button class="play-button" onclick="toggleMusic()">
+          ▶
+        </button>
+
+      </div>
+
+      <button onclick="nextPage()">
+        كملي ❤️
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- الصفحة 4 -->
+  <section class="page" id="page4">
+    <div class="card countdown-card">
+
+      <div class="heart-icon">⏳❤️</div>
+
+      <h2>مستنيين اليوم الجميل</h2>
+
+      <p>15 سبتمبر 2026 🎂</p>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>يوم</small>
+        </div>
+
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>ساعة</small>
+        </div>
+
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>دقيقة</small>
+        </div>
+
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>ثانية</small>
+        </div>
+
+      </div>
+
+      <button onclick="nextPage()">
+        عندي رسالة أخيرة 💌
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- الصفحة 5 -->
+  <section class="page" id="page5">
+    <div class="card final-card">
+
+      <div class="final-heart">💖</div>
+
+      <h2>آخر رسالة لفروحتي</h2>
+
+      <div class="final-message">
+
+        <p>
+          رساله دي مني لي فروحتي انا اينعم مش بقالك كتير دخلتي حياتي بس حاسس اني اعرفك بقالي كتشير اوي
+        </p>
+
+        <p>
+          وبحبك وبحب كل حاجه فيكي وربنا يخليكي ليا يا روحقلبي وتفضلي دايما في حياتي
+        </p>
+
+      </div>
+
+      <div class="ending">
+        كل سنة وانتي طيبة يا فروحة قلبي ❤️
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- مشغل ثابت -->
+  <div class="mini-player">
+
+    <div class="mini-song">
+      <span>❤️</span>
+
+      <div>
+        <b>بنت بلد يما</b>
+        <small>لفروحتي</small>
+      </div>
+    </div>
+
+    <button onclick="toggleMusic()" id="miniPlay">
+      ▶
+    </button>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
